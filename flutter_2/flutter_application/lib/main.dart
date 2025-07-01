@@ -11,36 +11,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "MyApp",
-      theme: ThemeData(primarySwatch: Colors.orange),
-
-      // home: Scaffold(
-      //   appBar: AppBar(title: Text("Hello Flutter")),
-      //   body: Center(child: Text("Hello Everyone 2",
-      //     style: TextStyle(fontSize: 30 , color: Colors.purple),
-      //   )),
-      // ),
-
-      // home: Scaffold(
-      //   appBar: AppBar(title: Text("Hello Flutter")),
-      //   body: Center(
-      //     child: Image(image: NetworkImage("https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/1015f/MainBefore.jpg")),
-      //   ),
-      // ),
-
-      // home: Scaffold(
-      //   appBar: AppBar(title: Text("Hello Flutter")),
-      //   body : Center(
-      //   child: Column(
-      //     mainAxisAlignment: MainAxisAlignment.spaceAround ,
-      //     crossAxisAlignment: CrossAxisAlignment.end,
-      //    children: [
-      //      Text("Column 1"),
-      //      Text("Column 2"),
-      //      Text("Column 3")
-      //    ],)
-      // )
-      // ),
+      title: "My Payment Account",
+      theme: ThemeData(
+        // Define the default brightness and colors.
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.purple,
+          // ···
+        ),
+      ),
       home: MyHomePage(),
     );
   }
@@ -54,54 +32,127 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int number = 0; // state
-
   @override
   Widget build(BuildContext context) {
-    List<Widget> data = [];
-    for (var i = 1; i < 5; i++) {
-      data.add(Text("list : $i"));
-    }
-    data.add(Text("click"));
-    data.add(Text(number.toString(), style: TextStyle(fontSize: 60)));
-
     return Scaffold(
-      appBar: AppBar(title: Text("Hello Flutter")),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.end,
-          // children: [
-          //   Text("click"),
-          //   // Text("$number", style: TextStyle(fontSize: 60)),
-          //   Text(number.toString(), style: TextStyle(fontSize: 60)),
-          // ],
-          children: data,
+      appBar: AppBar(
+        title: Text(
+          "My Payment Account",
+          style: TextStyle(
+            fontSize: 25,
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+          ),
         ),
+        backgroundColor: Colors.lightBlue,
       ),
-      floatingActionButton: FloatingActionButton(
-        //   onPressed: () {
-        //   setState(() {
-        //     number++;
-        //   });
-        //   if (number == 10) {
-        //        setState(() {
-        //       number = number + 5;
-        //   });
-        //   }
-        // // },child: Text("add"),),
-        // },
-        onPressed: () {
-          addNumber();
-        },
-        child: Icon(Icons.add),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            Container(
+              padding: const EdgeInsets.all(10.0),
+              decoration: BoxDecoration(
+                color: Colors.lightBlue,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              height: 120,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    "deposit:",
+                    style: TextStyle(
+                      fontSize: 25,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Expanded(
+                    child: Text(
+                      "15000",
+                      style: TextStyle(
+                        fontSize: 25,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.right,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 10),
+            Container(
+              padding: const EdgeInsets.all(10.0),
+              decoration: BoxDecoration(
+                color: Colors.lightGreen,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              height: 120,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    "deposit:",
+                    style: TextStyle(
+                      fontSize: 25,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Expanded(
+                    child: Text(
+                      "15000",
+                      style: TextStyle(
+                        fontSize: 25,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.right,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 10),
+            Container(
+              padding: const EdgeInsets.all(10.0),
+              decoration: BoxDecoration(
+                color: Colors.red,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              height: 120,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    "deposit:",
+                    style: TextStyle(
+                      fontSize: 25,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Expanded(
+                    child: Text(
+                      "15000",
+                      style: TextStyle(
+                        fontSize: 25,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.right,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
-
-  void addNumber() {
-    setState(() {
-      number++;
-    });
-  }
 }
+
+
