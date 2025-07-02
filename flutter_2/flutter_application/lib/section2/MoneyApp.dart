@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-import 'ExchangeRate.dart';
+import 'package:flutter_application/section2/MoneyBox.dart';
 
 void main() {
   runApp(MyApp());
@@ -34,42 +33,33 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  ExchangeRate? _dataFromApi;
-  @override
-  void initState() {
-    super.initState();
-    getExChangeRate();
-  }
-
-  Future<void> getExChangeRate() async {
-    var url =
-        'https://api.exchangeratesapi.io/v1/latest?symbols=USD,THB&access_key=78c9c196809e0e86ef746a136f9a9889';
-    Uri uri = Uri.parse(url);
-    var response = await http.get(uri);
-    setState(() {
-      _dataFromApi = exchangeRateFromJson(response.body);
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Money Exchange",
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-        ),
-      ),
-      body: Column(
-        children: [
-          LinearProgressIndicator(),
-          Text(
-            _dataFromApi == null
-                ? "Loading exchange rates..."
-                : _dataFromApi!.rates.toString(),
+          "My Payment Account",
+          style: TextStyle(
+            fontSize: 25,
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
           ),
-        ],
+        ),
+        backgroundColor: Colors.lightBlue,
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            MoneyBox("Payment", 15000, Colors.green, 50),
+            MoneyBox("Payment", 17000, Colors.blue, 50),
+            MoneyBox("Payment", 12000, Colors.red, 50),
+            MoneyBox("Payment", 16000, Colors.orange, 50)
+          ]
+        ),
       ),
     );
   }
 }
+
+
